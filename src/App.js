@@ -19,8 +19,9 @@ class App extends React.Component {
   
   handleEstadoChange = async(estado) => {
     const fetchedData = await fetchData(estado)
-    this.setState({ data:fetchedData })
-
+    this.setState({ data:fetchedData, estado:estado })
+    console.log(this.state.estado)
+    // this.setState( {estado:estado} )
   }
 
   render() {
@@ -29,7 +30,8 @@ class App extends React.Component {
         <h1>Brazil COVID-19 Tracker</h1>
         <Cards data = {this.state.data}/>
         <CountryPicker handleEstadoChange={this.handleEstadoChange}/>
-        <MapBrazil width={500} height={500} />
+        <MapBrazil onChange={this.handleEstadoChange} colorLabel='red' width={600} height={600} />
+      
       </div>
     )
   }

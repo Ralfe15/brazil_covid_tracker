@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+  import React, { useState, useEffect } from 'react';
 import { NativeSelect, FormControl } from '@material-ui/core';
 
 import styles from './CountryPicker.module.css';
@@ -27,7 +27,7 @@ const CountryPicker = ( {handleEstadoChange} ) => {
 
   return(
     <FormControl className={styles.formControl}>
-      <NativeSelect defaultValue="" onChange={(e)=>handleEstadoChange(e.target.value)}>
+      <NativeSelect defaultValue="SP" onChange={(e)=>handleEstadoChange(e.target.value)}>
         {fetchedEstados.map((estado,i)=><option key={i} value={estado}>{estadosNameList[estado]}</option>)}
       </NativeSelect>
     </FormControl>
